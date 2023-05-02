@@ -22,6 +22,7 @@ const Header = () => {
                     </div>
                     {/* <a className="btn btn-ghost normal-case text-xl font-bold text-black">Social Chef</a> */}
                     <img src={logo} alt="" />
+
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -33,8 +34,14 @@ const Header = () => {
                         </div>
                     </ul>
                 </div>
-                <div className="navbar-end">
+
+                <div className="navbar-end gap-2">
                     <a className="btn">Login</a>
+                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                        <div className="w-10 rounded-full">
+                            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        </div>
+                    </label>
                 </div>
             </div>
         </div>
