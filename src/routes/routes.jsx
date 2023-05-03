@@ -12,13 +12,14 @@ const router = createBrowserRouter([
                 path: '/',
                 element: <Home></Home>
             },
+            {
+                path:'/cards-details/:chefId',
+                element: <CardDetails></CardDetails>
+            }
             
         ]
     },
-    {
-        path:'/cards-details/:chefId',
-        element: <CardDetails></CardDetails>
-    }
+ 
 ])
 
 export default router;
