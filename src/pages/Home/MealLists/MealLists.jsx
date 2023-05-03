@@ -10,7 +10,7 @@ const MealLists = () => {
                     <div className="flex flex-wrap -m-4">
                         <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
                             <a className="block relative h-48 rounded overflow-hidden">
-                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src="http://cdn.gastrotheme.com/wp/wp-content/uploads/2017/03/appetizer-07-512x512.jpg" />
+                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src="http://cdn.gastrotheme.com/wp/wp-content/uploads/2017/03/entree-01-512x512.jpg" />
                             </a>
                             <div className="mt-4">
                                 <h2 className="text-gray-900 title-font text-lg font-medium">Roast Chicken</h2>
