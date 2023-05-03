@@ -1,4 +1,6 @@
 import React from 'react';
+import { FaStar } from 'react-icons/fa';
+
 
 const CustomerReview = () => {
     return (
@@ -6,6 +8,7 @@ const CustomerReview = () => {
             <section className="text-gray-600 body-font">
                 <div className="container px-5 py-24 mx-auto">
                     <h2 className='text-center text-orange-500 font-sans text-5xl mb-8'><span className='text-black'>Our Happy </span> Customers!!!</h2>
+                    <p className='mb-20 text-lg text-center'>At Social Chef, our customers' satisfaction is our top priority. <br /> We're thrilled to hear that so many of our customers have had positive experiences with our healthy Italian cuisine. </p>
                     <div className="flex flex-wrap -m-4">
                         <div className="lg:w-1/3 lg:mb-0 mb-6 p-4">
                             <div className="h-full text-center">
@@ -32,6 +35,7 @@ const CustomerReview = () => {
                                 <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
                                 <h2 className="text-gray-900 font-medium title-font tracking-wider text-lg">Harry Potter</h2>
                                 <p className="text-gray-500">Heart Surgeon</p>
+                              
                             </div>
                         </div>
                     </div>
