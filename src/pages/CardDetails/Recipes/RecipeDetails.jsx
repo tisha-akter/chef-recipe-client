@@ -1,11 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaHeart } from 'react-icons/fa';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const RecipeDetails = ({ chefDetails }) => {
+    const [favorites, setFavorites] = useState([]);
+    const [disabledButtons, setDisabledButtons] = useState([]);
+
+    useEffect(() => {
+        const storedFavorites = JSON.parse(localStorage.getItem('favorites'));
+        if (storedFavorites) {
+            setFavorites(storedFavorites);
+        }
+    }, []);
+
+    const handleAddToFavorites = (item, index) => {
+        setFavorites([...favorites, item]);
+        toast.success(`Added ${item.recipe} to favorites!`);
+        setDisabledButtons([...disabledButtons, index]);
+        localStorage.setItem('favorites', JSON.stringify([...favorites, item]));
+    };
+
+    const isButtonDisabled = (index) => {
+        return disabledButtons.includes(index);
+    };
+
+
 
     return (
         <div>
-
+            <ToastContainer />
             <section className="text-gray-600 body-font overflow-hidden ">
                 <div className="container px-5 py-24 mx-auto gap-5">
                     <h2 className='text-center text-orange-500 font-sans text-5xl mb-12'> This Chef's Famous recipes</h2>
@@ -23,7 +47,14 @@ const RecipeDetails = ({ chefDetails }) => {
 
                                 <div className="flex">
                                     <span className="title-font font-medium text-2xl text-gray-900">rating{ }</span>
-                                    <button className="flex ml-auto text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"><FaHeart flex ml-auto></FaHeart></button>
+                                  <button
+                                        className="flex ml-auto text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+                                        onClick={() => handleAddToFavorites(item, index)}
+                                        disabled={isButtonDisabled(index)}
+                                    >
+                                        {isButtonDisabled(index) ? 'Favorited' : <FaHeart />}
+                                    </button>
+
 
                                 </div>
                             </div>
