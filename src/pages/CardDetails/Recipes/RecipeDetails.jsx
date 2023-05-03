@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 const RecipeDetails = ({ chefDetails }) => {
     const [favorites, setFavorites] = useState([]);
@@ -46,8 +48,13 @@ const RecipeDetails = ({ chefDetails }) => {
                                 <p className="leading-relaxed mb-4 font-bold"><span className='text-orange-500 text-xl'>Cooking method:</span><br /> {item?.cooking_method}</p>
 
                                 <div className="flex">
-                                    <span className="title-font font-medium text-2xl text-gray-900">rating{ }</span>
-                                  <button
+                                    <div>
+                                        <span className="title-font font-medium  text-gray-900 text-xl inline-flex items-center gap-2"><Rating 
+                                        style={{ maxWidth: 100 }}
+                                         value={Math.round(item?.rating || 0)}
+                                          readOnly />{item?.rating}</span>
+                                    </div>
+                                    <button
                                         className="flex ml-auto text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
                                         onClick={() => handleAddToFavorites(item, index)}
                                         disabled={isButtonDisabled(index)}
