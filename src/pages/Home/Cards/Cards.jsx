@@ -8,7 +8,7 @@ const Cards = () => {
     const [cardsData, setCardData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/cards')
+        fetch('https://chef-recipe-hunter-server-tisha-akter.vercel.app/cards')
             .then(response => response.json())
             .then(data => setCardData(data))
     }, [])

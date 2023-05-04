@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
+import recipe1 from '../../../assets/food1.jpg'
 
 const RecipeDetails = ({ chefDetails }) => {
     const [favorites, setFavorites] = useState([]);
@@ -65,7 +66,7 @@ const RecipeDetails = ({ chefDetails }) => {
 
                                 </div>
                             </div>
-                            <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src={item?.img} />
+                            <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src={recipe1 } />
                         </div>
                     ))}
                 </div>

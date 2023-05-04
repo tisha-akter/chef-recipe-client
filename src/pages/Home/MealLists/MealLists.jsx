@@ -1,4 +1,10 @@
 import React from 'react';
+import recipe1 from '../../../assets/food1.jpg'
+import recipe2 from '../../../assets/food2.jpg'
+import recipe3 from '../../../assets/food3.jpg'
+import recipe4 from '../../../assets/food4.jpg'
+import recipe5 from '../../../assets/food5.jpg'
+import recipe6 from '../../../assets/food6.jpg'
 
 const MealLists = () => {
     return (
@@ -10,7 +16,7 @@ const MealLists = () => {
                     <div className="flex flex-wrap -m-4">
                         <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
                             <a className="block relative h-48 rounded overflow-hidden">
-                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src="http://cdn.gastrotheme.com/wp/wp-content/uploads/2017/03/entree-01-512x512.jpg" />
+                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={recipe1} />
                             </a>
                             <div className="mt-4">
                                 <h2 className="text-gray-900 title-font text-lg font-medium">Roast Chicken</h2>
@@ -19,7 +25,7 @@ const MealLists = () => {
                         </div>
                         <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
                             <a className="block relative h-48 rounded overflow-hidden">
-                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src="http://cdn.gastrotheme.com/wp/wp-content/uploads/2017/03/pasta-01-512x512.jpg" />
+                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={recipe2} />
                             </a>
                             <div className="mt-4">
 
@@ -29,7 +35,7 @@ const MealLists = () => {
                         </div>
                         <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
                             <a className="block relative h-48 rounded overflow-hidden">
-                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src="http://cdn.gastrotheme.com/wp/wp-content/uploads/2017/03/appetizer-04-512x512.jpg" />
+                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={recipe3} />
                             </a>
                             <div className="mt-4">
                                 <h2 className="text-gray-900 title-font text-lg font-medium">Margherita Pizza</h2>
@@ -38,7 +44,7 @@ const MealLists = () => {
                         </div>
                         <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
                             <a className="block relative h-48 rounded overflow-hidden">
-                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src="http://cdn.gastrotheme.com/wp/wp-content/uploads/2017/03/appetizer-05-512x512.jpg" />
+                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={recipe4}/>
                             </a>
                             <div className="mt-4">
                                 <h2 className="text-gray-900 title-font text-lg font-medium">Spaghetti Carbonara</h2>
@@ -47,7 +53,7 @@ const MealLists = () => {
                         </div>
                         <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
                             <a className="block relative h-48 rounded overflow-hidden">
-                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src="http://cdn.gastrotheme.com/wp/wp-content/uploads/2017/03/appetizer-08-512x512.jpg" />
+                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={recipe5}/>
                             </a>
                             <div className="mt-4">
                                 <h2 className="text-gray-900 title-font text-lg font-medium">PRAWN BISQUE</h2>
@@ -56,7 +62,7 @@ const MealLists = () => {
                         </div>
                         <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
                             <a className="block relative h-48 rounded overflow-hidden">
-                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src="http://cdn.gastrotheme.com/wp/wp-content/uploads/2017/03/appetizer-02-512x512.jpg" />
+                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={recipe6}/>
                             </a>
                             <div className="mt-4">
                                 <h2 className="text-gray-900 title-font text-lg font-medium">PETIT CARP</h2>
@@ -65,7 +71,7 @@ const MealLists = () => {
                         </div>
                         <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
                             <a className="block relative h-48 rounded overflow-hidden">
-                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src="http://cdn.gastrotheme.com/wp/wp-content/uploads/2017/03/salad-01-512x512.jpg" />
+                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={recipe1} />
                             </a>
                             <div className="mt-4">
                                 <h2 className="text-gray-900 title-font text-lg font-medium"> AVOCADO SALAD</h2>
@@ -74,7 +80,7 @@ const MealLists = () => {
                         </div>
                         <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
                             <a className="block relative h-48 rounded overflow-hidden">
-                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src="http://cdn.gastrotheme.com/wp/wp-content/uploads/2017/03/appetizer-01-512x512.jpg" />
+                                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={recipe4} />
                             </a>
                             <div className="mt-4">
                                 <h2 className="text-gray-900 title-font text-lg font-medium">Tomato Soup</h2>

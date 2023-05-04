@@ -9,7 +9,7 @@ const CardDetails = () => {
     let { chefId } = useParams();
 
     useEffect(() => {
-        const url = `http://localhost:5000/banner/${chefId}`;
+        const url = `https://chef-recipe-hunter-server-tisha-akter.vercel.app/banner/${chefId}`;
         fetch(url)
             .then(response => response.json())
             .then(data => setChefDetail(data))
