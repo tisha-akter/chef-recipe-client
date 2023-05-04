@@ -8,6 +8,8 @@ const Header = () => {
 
     const { user, logOut } = useContext(AuthContext);
 
+    // console.log(user?.email);
+
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -47,17 +49,20 @@ const Header = () => {
                 </div>
 
                 <div className="navbar-end gap-2">
-                    {user && <div className="w-10 rounded-full">
-                        <FaUserCircle className='text-4xl'></FaUserCircle>
-                    </div>
-                    }
-
-                    {user ?
-                        <button onClick={handleLogOut} className='btn btn-sm bg-orange-500'>Logout</button> :
-                        <Link to="/login">
-                            <button className='btn btn-sm bg-orange-500'>Login</button>
-                        </Link>
-                    }
+                    {user ? 
+                    (
+                        <div className="w-10 rounded-full" title={user.email}>
+                            <FaUserCircle className='text-4xl'></FaUserCircle>
+                        </div>
+                    ) :
+                    (
+                            <Link to="/login">
+                                <button className='btn btn-sm bg-orange-500'>Login</button>
+                            </Link>
+                    )}
+                    {user && (
+                        <button onClick={handleLogOut} className='btn btn-sm bg-orange-500'>Logout</button>
+                    )}
                 </div>
             </div>
         </div>

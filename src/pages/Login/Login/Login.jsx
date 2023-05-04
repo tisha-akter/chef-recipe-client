@@ -26,7 +26,7 @@ const Login = () => {
                 const loggedUSer = result.user;
                 console.log(loggedUSer)
                 form.reset();
-                navigate(from, {replace: true})
+                navigate(from, { replace: true })
 
             })
             .catch(error => {
@@ -37,25 +37,25 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         // console.log('goooogleeeee is coming')
         signInWithGoogle()
-        .then(result => {
-            const loggedUSer =result.user;
-            console.log(loggedUSer);
-        })
-        .catch(error => {
-            console.log(error)
-        })
+            .then(result => {
+                const loggedUSer = result.user;
+                console.log(loggedUSer);
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     const handleGithubSignIn = () => {
         console.log('github is comming')
         singInWithGithub()
-        .then(result => {
-            const loggedInUser = result.user;
-            console.log(loggedInUser)
-        })
-        .catch(error => {
-            console.log(error);
-        })
+            .then(result => {
+                const loggedInUser = result.user;
+                console.log(loggedInUser)
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
 
@@ -92,12 +92,12 @@ const Login = () => {
                     </p>
 
                     <div className='flex'>
-                    <div className='p-5'>
-                        <button onClick={handleGoogleSignIn} className="btn  bg-orange-500 text-sm"><FaGoogle className='mr-1 text-primary text-xl'></FaGoogle>google</button>
-                    </div>
-                    <div className='p-5'>
-                        <button onClick={handleGithubSignIn} className="btn btn-primary bg-orange-500 "><FaGithub className='text-black text-xl mr-1'></FaGithub> github</button>
-                    </div>
+                        <div className='p-5'>
+                            <button onClick={handleGoogleSignIn} className="btn  bg-orange-500 text-sm"><FaGoogle className='mr-1 text-primary text-xl'></FaGoogle>google</button>
+                        </div>
+                        <div className='p-5'>
+                            <button onClick={handleGithubSignIn} className="btn btn-primary bg-orange-500 "><FaGithub className='text-black text-xl mr-1'></FaGithub> github</button>
+                        </div>
                     </div>
 
                 </div>
