@@ -1,16 +1,33 @@
-import React from 'react';
+
+import React, { useRef } from 'react';
+import { FaDownload } from 'react-icons/fa';
+import { useReactToPrint } from 'react-to-print';
 
 const Blog = () => {
+    const componentRef = useRef();
+
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+    });
+
     return (
         <div>
             <div className='container mx-auto py-3 mb-10 mt-10 '>
-                <div className="border border-orange-500 p-4 sm:p-6 md:p-8">
+
+                <div className='flex justify-between mb-5'>
+                    <h2>Download the blog !!</h2>
+                    <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={handlePrint}>
+                        <FaDownload className='inline-block mr-2' />
+                        Download
+                    </button>
+                </div>
+                <div className="border border-orange-500 p-4 sm:p-6 md:p-8" ref={componentRef}>
                     <div className='mb-5'>
                         <div className="text-orange-500 font-bold text-2xl">
                             1. Differences between uncontrolled and controlled components-
                         </div>
                         <div className='text-black font-bold text-lg'>
-                            Ans: In React, controlled components store form data within the component's state, while uncontrolled components allow form data to be handled by the DOM itself. Controlled components are useful for validating and manipulating form data, while uncontrolled components are useful for simple forms where you don't need to do anything with the data before sending it to a server.
+                            In React, controlled components store form data within the component's state, while uncontrolled components allow form data to be handled by the DOM itself. Controlled components are useful for validating and manipulating form data, while uncontrolled components are useful for simple forms where you don't need to do anything with the data before sending it to a server.
                         </div>
                     </div>
                     <div className='mb-5'>
@@ -32,7 +49,7 @@ const Blog = () => {
                     </div>
                     <div className='mb-5'>
                         <div className="text-orange-500 font-bold text-2xl">
-                            4. What is a custom hook, and why will you create a custom hook? 
+                            4. What is a custom hook, and why will you create a custom hook?
                         </div>
                         <div className='text-black font-bold text-lg'>
                             Ans:
@@ -47,3 +64,4 @@ const Blog = () => {
 };
 
 export default Blog;
+
