@@ -65,7 +65,7 @@ const RecipeDetails = ({ chefDetails }) => {
 
                                 </div>
                             </div>
-                            <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://braise.qodeinteractive.com/wp-content/uploads/2021/09/home-3-recipes-list-img-1.jpg" />
+                            <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src={item?.img} />
                         </div>
                     ))}
                 </div>

@@ -40,6 +40,8 @@ const Login = () => {
             .then(result => {
                 const loggedUSer = result.user;
                 console.log(loggedUSer);
+                form.reset();
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error)
@@ -79,9 +81,7 @@ const Login = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-                            <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                            </label>
+                           
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary bg-orange-500">Login</button>
