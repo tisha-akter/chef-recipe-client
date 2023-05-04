@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 
 const Login = () => {
 
-    const { signIn, signInWithGoogle } = useContext(AuthContext);
+    const { signIn, signInWithGoogle, singInWithGithub } = useContext(AuthContext);
     // console.log(signIn)
     const navigate = useNavigate();
     const location = useLocation();
@@ -34,6 +35,7 @@ const Login = () => {
     }
 
     const handleGoogleSignIn = () => {
+        // console.log('goooogleeeee is coming')
         signInWithGoogle()
         .then(result => {
             const loggedUSer =result.user;
@@ -43,6 +45,19 @@ const Login = () => {
             console.log(error)
         })
     }
+
+    const handleGithubSignIn = () => {
+        console.log('github is comming')
+        singInWithGithub()
+        .then(result => {
+            const loggedInUser = result.user;
+            console.log(loggedInUser)
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
 
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -75,8 +90,14 @@ const Login = () => {
                     <p className=" m-4 mt-0 ml-8">
                         <Link to="/register" className="label-text-alt link link-hover">New to SocialChef? Please register</Link>
                     </p>
+
+                    <div className='flex'>
                     <div className='p-5'>
-                        <button onClick={handleGoogleSignIn} className="btn btn-primary bg-orange-500">Google</button>
+                        <button onClick={handleGoogleSignIn} className="btn  bg-orange-500 text-sm"><FaGoogle className='mr-1 text-primary text-xl'></FaGoogle>google</button>
+                    </div>
+                    <div className='p-5'>
+                        <button onClick={handleGithubSignIn} className="btn btn-primary bg-orange-500 "><FaGithub className='text-black text-xl mr-1'></FaGithub> github</button>
+                    </div>
                     </div>
 
                 </div>
