@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../../../assets/chef-name.png'
 import { AuthContext } from '../../../../../Providers/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa';
@@ -26,40 +26,59 @@ const Header = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <div >
-                                <li><a>Home</a></li>
+                                <NavLink to='/' className='navlinkbuttons'
+                                    style={({ isActive, isPending }) => ({
+                                        color: isActive ? "orange" : ""
+                                    })}>
+                                    <span className='me-2'>Home</span>
+                                </NavLink>
                             </div>
                             <div className='text-gray-600 hover:text-indigo-400 font-semibold'>
-                                <li><a>Blog</a></li>
+                                <NavLink to='/blog' className='navlinkbuttons'
+                                    style={({ isActive, isPending }) => ({
+                                        color: isActive ? "orange" : ""
+                                    })}>
+                                    <span className='me-2'>Blog</span>
+                                </NavLink>
                             </div>
                         </ul>
                     </div>
-                    {/* <a className="btn btn-ghost normal-case text-xl font-bold text-black">Social Chef</a> */}
                     <img src={logo} alt="" />
 
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <div className='text-gray-600 hover:text-indigo-400 font-semibold'>
-                            <Link className='me-2' to='/'>Home</Link>
+                            <NavLink to='/' className='navlinkbuttons'
+                                 style={({ isActive, isPending }) => ({
+                                    color: isActive ? "orange" : ""
+                                })}>
+                                <span className='me-2'>Home</span>
+                            </NavLink>
                         </div>
                         <div className='text-gray-600 hover:text-indigo-400 font-semibold'>
-                            <Link to='/blog'>Blog</Link>
+                            <NavLink to='/blog' className='navlinkbuttons'
+                                style={({ isActive, isPending }) => ({
+                                    color: isActive ? "orange" : ""
+                                })}>
+                                <span className='me-2'>Blog</span>
+                            </NavLink>
                         </div>
                     </ul>
                 </div>
 
                 <div className="navbar-end gap-2">
-                    {user ? 
-                    (
-                        <div className="w-10 rounded-full" title={user.email}>
-                            <FaUserCircle className='text-4xl'></FaUserCircle>
-                        </div>
-                    ) :
-                    (
+                    {user ?
+                        (
+                            <div className="w-10 rounded-full" title={user.email}>
+                                <FaUserCircle className='text-4xl'></FaUserCircle>
+                            </div>
+                        ) :
+                        (
                             <Link to="/login">
                                 <button className='btn btn-sm bg-orange-500'>Login</button>
                             </Link>
-                    )}
+                        )}
                     {user && (
                         <button onClick={handleLogOut} className='btn btn-sm bg-orange-500'>Logout</button>
                     )}
