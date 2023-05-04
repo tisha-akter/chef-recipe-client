@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../../../assets/chef-name.png'
+import { AuthContext } from '../../../../../Providers/AuthProvider';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error));
+    }
+
     return (
         <div className='container mx-auto'>
             <div className="navbar bg-base-100">
@@ -36,12 +47,17 @@ const Header = () => {
                 </div>
 
                 <div className="navbar-end gap-2">
-                    <a className="btn">Login</a>
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img src="" />
-                        </div>
-                    </label>
+                    {user && <div className="w-10 rounded-full">
+                        <FaUserCircle className='text-4xl'></FaUserCircle>
+                    </div>
+                    }
+
+                    {user ?
+                        <button onClick={handleLogOut} className='btn btn-sm bg-orange-500'>Logout</button> :
+                        <Link to="/login">
+                            <button className='btn btn-sm bg-orange-500'>Login</button>
+                        </Link>
+                    }
                 </div>
             </div>
         </div>
