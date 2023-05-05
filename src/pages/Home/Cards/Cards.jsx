@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaGulp, FaHeart } from 'react-icons/fa';
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 
@@ -24,7 +25,10 @@ const Cards = () => {
                         {cardsData.map(card => (
                             <div className="p-4 md:w-1/3" key={card?.id}>
                                 <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                                    <img className="lg:h-90 md:h-90 w-full object-cover object-center" src={card?.picture} alt="blog" />
+                                    <LazyLoad effect ="blur">
+                                        <img className="lg:h-90 md:h-90 w-full object-cover object-center" src={card?.picture} alt="blog" />
+                                    </LazyLoad>
+
 
 
                                     <div className="p-6">
