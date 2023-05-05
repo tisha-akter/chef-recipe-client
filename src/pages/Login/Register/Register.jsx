@@ -1,12 +1,16 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 
 const Register = () => {
 
-    const {user, createUser} = useContext(AuthContext);
+    const {user, createUser, updateProfile} = useContext(AuthContext);
+    const [errorMessage, setErrorMessage] = useState(null);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/login';
 
     const handleRegister = event => {
         event.preventDefault();
@@ -18,11 +22,33 @@ const Register = () => {
         const password = form.password.value;
         console.log(name, photo, email, password);
 
+        if(password.length < 6){
+            setErrorMessage("you have to enter at least 6 digit")
+            return;
+        }
+
+        else if(!/(?=.*[A-Z].*[A-Z])/.test(password)){
+            setErrorMessage('Please add at least two uppercase.');
+            return;  
+        }
+
+       
+
         createUser(email, password)
         .then(result => {
             const loggedUSer = result.user;
+
+            if(loggedUSer) {
+                updateProfile(loggedUSer, {
+                    photoURL: photo
+                }).then(() => {
+                    console.log("Photo Updated");
+                })
+            }
+
             console.log(loggedUSer);
             form.reset();
+            navigate(from, { replace: true })
         })
         .catch(error => {
             console.log(error);
@@ -47,7 +73,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Photo URl</span>
                             </label>
-                            <input type="text" name='photo' placeholder="Photo URl" className="input input-bordered" required />
+                            <input type="text" name='photo' placeholder="Photo URl" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -64,6 +90,7 @@ const Register = () => {
                                 <Link to="/login" className="label-text-alt link link-hover">Already Have an account?</Link>
                             </label>
                         </div>
+                        {errorMessage && <p className='text-red-500'>{errorMessage}</p>}
                         <div className="form-control mt-6">
                             <button className="btn btn-primary bg-orange-500">Register</button>
                         </div>

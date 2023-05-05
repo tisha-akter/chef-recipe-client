@@ -4,11 +4,12 @@ import logo from '../../../../../assets/chef-name.png'
 import { AuthContext } from '../../../../../Providers/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa';
 
+
 const Header = () => {
 
     const { user, logOut } = useContext(AuthContext);
 
-    // console.log(user?.email);
+    // console.log(user);
 
     const handleLogOut = () => {
         logOut()
@@ -50,7 +51,7 @@ const Header = () => {
                     <ul className="menu menu-horizontal px-1">
                         <div className='text-gray-600 hover:text-indigo-400 font-semibold'>
                             <NavLink to='/' className='navlinkbuttons'
-                                 style={({ isActive, isPending }) => ({
+                                style={({ isActive, isPending }) => ({
                                     color: isActive ? "orange" : ""
                                 })}>
                                 <span className='me-2'>Home</span>
@@ -70,8 +71,17 @@ const Header = () => {
                 <div className="navbar-end gap-2">
                     {user ?
                         (
-                            <div className="w-10 rounded-full" title={user.email}>
-                                <FaUserCircle className='text-4xl'></FaUserCircle>
+                            <div title={user.email}>
+                                {user.photoURL ?
+                                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img src={user.photoURL} /> 
+                                        </div>
+                                    </label>  
+                                    : 
+                                    <FaUserCircle className='text-4xl'></FaUserCircle>
+                                }
+
                             </div>
                         ) :
                         (

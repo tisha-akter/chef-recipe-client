@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
@@ -10,8 +10,10 @@ const Login = () => {
     // console.log(signIn)
     const navigate = useNavigate();
     const location = useLocation();
-    console.log('login page location', location);
     const from = location.state?.from?.pathname || '/';
+
+    const { user, logOut } = useContext(AuthContext);
+    const [errorMessage, setErrorMessage] = useState(null);
 
     const handleLogin = event => {
         event.preventDefault();
@@ -21,16 +23,25 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
 
+        if(password.length < 6){
+            setErrorMessage("you have to enter at least 6 digit")
+            return;
+        }
+       
         signIn(email, password)
             .then(result => {
                 const loggedUSer = result.user;
-                console.log(loggedUSer)
                 form.reset();
                 navigate(from, { replace: true })
 
             })
             .catch(error => {
                 console.log(error)
+                if(error) {
+                    const firebaseError = error.message.split('/');
+                    const message = firebaseError[1].split(')');
+                    setErrorMessage(message[0])
+                }
             })
     }
 
@@ -39,7 +50,6 @@ const Login = () => {
         signInWithGoogle()
             .then(result => {
                 const loggedUSer = result.user;
-                console.log(loggedUSer);
                 form.reset();
                 navigate(from, { replace: true })
             })
@@ -54,10 +64,15 @@ const Login = () => {
             .then(result => {
                 const loggedInUser = result.user;
                 console.log(loggedInUser)
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error);
             })
+    }
+
+    if(user) {
+        navigate(from, { replace: true })
     }
 
 
@@ -83,7 +98,8 @@ const Login = () => {
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                            
                         </div>
-                        <div className="form-control mt-6">
+                        {errorMessage && <p className='text-red-500'>{errorMessage}</p>}
+                        <div className="form-control mt-4">
                             <button className="btn btn-primary bg-orange-500">Login</button>
                         </div>
                     </form>
