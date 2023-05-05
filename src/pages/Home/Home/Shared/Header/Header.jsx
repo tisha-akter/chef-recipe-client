@@ -44,7 +44,7 @@ const Header = () => {
                             </div>
                         </ul>
                     </div>
-                    <img src={logo} alt="" />
+                    <img className='h-5 w-15 md:h-auto md:w-auto' src={logo} alt="" />
 
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -74,7 +74,7 @@ const Header = () => {
                             <div title={user.email}>
                                 {user.photoURL ?
                                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                        <div className="w-10 rounded-full">
+                                        <div className="w-8 md:w-10 rounded-full">
                                             <img src={user.photoURL} /> 
                                         </div>
                                     </label>  
